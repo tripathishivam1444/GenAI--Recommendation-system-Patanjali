@@ -28,6 +28,6 @@ def get_recommendations(user_query, df=dd, embedding=embedding):
 
     df['similarity'] = df['embeddings'].apply(lambda x: cosine_similarity([user_embedding], [x])[0][0])
     recommended_products = df.sort_values(by='similarity', ascending=False)
-    top_recommendations = recommended_products[['Product Name', 'similarity', 'Link', 'Price', 'Image']].head(25)
+    top_recommendations = recommended_products[['Product Name', 'similarity', 'Link', 'Price', 'Image']].head(10)
     
     return top_recommendations
